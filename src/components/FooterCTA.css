@@ -1,0 +1,8 @@
+.footer-cta {
+  flex: none;
+  background: var(--background-default);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

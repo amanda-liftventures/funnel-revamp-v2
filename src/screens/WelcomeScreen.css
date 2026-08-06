@@ -1,0 +1,196 @@
+.welcome {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+  position: relative;
+  background: #01434b;
+}
+
+/* Exact Figma radial: ellipse 614.6x430.5 at (212, 278.5), stops 15/34.6/44.3/54.1%,
+   drawn at 0.7 opacity over #01434B. The outermost stop equals the base color,
+   so the slow drift never reveals an edge. */
+.welcome::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    614.6px 430.5px at 212px 278.5px,
+    rgb(39, 146, 158) 15%,
+    rgb(20, 107, 117) 34.6%,
+    rgb(11, 87, 96) 44.3%,
+    rgb(1, 67, 75) 54.1%
+  );
+  opacity: 0.7;
+  animation: welcome-glow-drift 26s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes welcome-glow-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(2.2%, -1.6%) scale(1.05);
+  }
+  66% {
+    transform: translate(-1.8%, 1.4%) scale(0.98);
+  }
+  100% {
+    transform: translate(1.2%, 2%) scale(1.04);
+  }
+}
+
+.welcome-main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+
+/* Guide-card strips (SVG assets), slow opposing marquee loop */
+.welcome-collage {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 60px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.welcome-strip {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.welcome-strip img {
+  display: block;
+  height: 104px;
+  width: auto;
+  max-width: none;
+  flex: none;
+}
+
+.welcome-strip--upper {
+  animation: strip-left 120s linear infinite;
+}
+
+.welcome-strip--lower {
+  animation: strip-right 120s linear infinite;
+}
+
+/* Lower strip SVG has 0.5px leading + 8px trailing padding baked in;
+   7.5px extra keeps the loop seam at exactly 16px card-to-card
+   (upper strip is 8px + 8px, already 16px). */
+.welcome-strip--lower img {
+  margin-right: 7.5px;
+}
+
+@keyframes strip-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-888px);
+  }
+}
+
+@keyframes strip-right {
+  from {
+    transform: translateX(-892.5px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome::before,
+  .welcome-strip--upper,
+  .welcome-strip--lower {
+    animation: none;
+  }
+}
+
+/* Headline block */
+.welcome-text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 390px;
+  padding: 0 16px 12px;
+  flex: none;
+}
+
+.welcome-highlight {
+  position: absolute;
+  left: 77px;
+  top: 3px;
+  width: 243.767px;
+  height: 36.926px;
+  pointer-events: none;
+  /* Asset is authored in teal #006C7A for light surfaces; on the dark welcome
+     background the frame uses the same strokes — keep as-is. */
+}
+
+.welcome-headline {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: 0.25px;
+  color: #f8f8f8;
+}
+
+.welcome-subhead {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.25px;
+  color: #cfcfcf;
+}
+
+/* Footer */
+.welcome-footer {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 16px 24px;
+  position: relative;
+}
+
+.welcome-cta .ds-button-icon img {
+  /* white asset recolored to match the Contrast label */
+  filter: brightness(0) saturate(100%) invert(24%) sepia(57%) saturate(1392%)
+    hue-rotate(152deg) brightness(94%) contrast(101%);
+}
+
+.welcome-signin {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.25px;
+  font-family: var(--font-ui);
+  color: #cfcfcf;
+}
+
+.welcome-signin .ds-link {
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.25px;
+}

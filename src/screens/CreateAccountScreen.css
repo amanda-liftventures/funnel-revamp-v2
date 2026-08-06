@@ -1,0 +1,14 @@
+.create-account {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Full-width render anchored to the top; scrolls instead of cropping when the
+   viewport is shorter than the 390x844 frame */
+.create-account img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

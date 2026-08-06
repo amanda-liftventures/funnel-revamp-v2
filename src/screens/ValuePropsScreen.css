@@ -1,0 +1,98 @@
+.vp-content {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0;
+  position: relative;
+  background: #f8f8f8;
+}
+
+/* Exact Figma radial: ellipse 265.1x425 at (211.5, 284),
+   #CFEBEE 15% → #F8F8F8 90%, painted at 0.7 opacity over #F8F8F8 */
+.vp-content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    265.1px 425px at 211.5px 284px,
+    rgb(207, 235, 238) 15%,
+    rgb(248, 248, 248) 90%
+  );
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.vp-headline-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 390px;
+  padding: 12px 24px;
+}
+
+.vp-headline {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.2;
+  color: #212121;
+  text-align: center;
+}
+
+/* Brush highlight centered behind the word it decorates */
+.vp-hl-word {
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.vp-hl-word img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -46%);
+  width: 169.03px;
+  height: 40.7px;
+  max-width: none;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.vp-callouts {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 390px;
+  padding: 32px;
+}
+
+.vp-callout {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 0;
+  border-radius: 8px;
+}
+
+/* Complete 32x32 chip asset (rounded bg + glyph baked in) */
+.vp-callout-chip {
+  width: 32px;
+  height: 32px;
+  flex: none;
+}
+
+.vp-callout-text {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.25px;
+  color: #212121;
+  flex: 1;
+}

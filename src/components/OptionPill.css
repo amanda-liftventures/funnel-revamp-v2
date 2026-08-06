@@ -1,0 +1,94 @@
+/* DS <Radio Button> (node 850:2138), Style=Icon — full state matrix:
+   Default:  transparent fill, #bfbfbf border, #616161 label
+   Hover:    #ededed fill (unchecked) / #cfebee (checked)
+   Pressed:  #f8f8f8 fill + #797979 border (unchecked) / #cfebee (checked)
+   Focused:  #797979 border (unchecked)
+   Checked:  #f0f9fa fill, #006c7a border + label */
+.option-pill {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 24px;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid #bfbfbf;
+  border-radius: 100px;
+  text-align: left;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.option-pill:hover {
+  background: #ededed;
+}
+
+.option-pill:active {
+  background: #f8f8f8;
+  border-color: #797979;
+}
+
+.option-pill:focus-visible {
+  border-color: #797979;
+  outline: none;
+}
+
+.option-pill-icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+/* Material glyphs keep natural proportion inside the 18px box (never stretched) */
+.option-pill-icon img {
+  max-width: 15px;
+  max-height: 15px;
+  width: auto;
+  height: auto;
+  transition: filter 0.15s ease;
+}
+
+.option-pill-label {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.25px;
+  color: #616161;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+/* Checked */
+.option-pill--selected {
+  background: #f0f9fa;
+  border-color: #006c7a;
+}
+
+.option-pill--selected:hover {
+  background: #cfebee;
+}
+
+.option-pill--selected:active {
+  background: #cfebee;
+  border-color: #006c7a;
+}
+
+.option-pill--selected .option-pill-label {
+  color: #006c7a;
+}
+
+.option-pill--selected .option-pill-icon img {
+  filter: brightness(0) saturate(100%) invert(24%) sepia(57%) saturate(1392%)
+    hue-rotate(152deg) brightness(94%) contrast(101%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .option-pill,
+  .option-pill-label,
+  .option-pill-icon img {
+    transition: none;
+  }
+}

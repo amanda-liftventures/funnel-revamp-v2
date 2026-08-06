@@ -1,0 +1,140 @@
+/* SuperSummary DS 2.0 — interactive component states.
+   Values extracted from the <Button> (node 3:4849) and <Link> (node 1514:8148)
+   component sets in Design-System-2.0 (OHMReJVPdXRYkjndGFVpf0). */
+
+/* ---------- <Button> ---------- */
+.ds-button {
+  height: 48px;
+  width: 100%;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 16px;
+  overflow: clip;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.25px;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+.ds-button:active:not(:disabled) {
+  transform: scale(0.985);
+}
+
+/* Type=Primary, Style=Default */
+.ds-button--primary {
+  background: #006c7a;
+  color: #f8f8f8;
+}
+
+.ds-button--primary:hover:not(:disabled) {
+  background: #005863;
+}
+
+.ds-button--primary:active:not(:disabled) {
+  background: #27929e;
+}
+
+.ds-button--primary:focus-visible {
+  outline: 2px solid #006c7a;
+  outline-offset: 2px;
+}
+
+.ds-button--primary:disabled {
+  background: #cfcfcf;
+  color: #909090;
+  cursor: default;
+}
+
+.ds-button--primary:disabled .ds-button-icon img {
+  filter: brightness(0) saturate(100%) invert(62%);
+}
+
+/* Type=Primary, Style=Contrast (dark/brand surfaces) */
+.ds-button--primary-contrast {
+  background: #ffffff;
+  color: #006c7a;
+}
+
+.ds-button--primary-contrast:hover:not(:disabled) {
+  background: #cfebee;
+}
+
+.ds-button--primary-contrast:active:not(:disabled) {
+  background: #f0f9fa;
+}
+
+.ds-button--primary-contrast:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* End icon: 24x24 box, Material glyph at natural proportion (~15.6px), never stretched */
+.ds-button-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.ds-button-icon img {
+  max-width: 15.6px;
+  max-height: 15.6px;
+  width: auto;
+  height: auto;
+}
+
+/* ---------- <Link> ---------- */
+.ds-link {
+  font-family: var(--font-ui);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+  cursor: pointer;
+}
+
+/* Style=Default */
+.ds-link--default {
+  color: #006c7a;
+}
+
+.ds-link--default:hover {
+  color: #005863;
+}
+
+.ds-link--default:active {
+  color: #27929e;
+}
+
+/* Style=Contrast (dark surfaces). Resting color per funnel frame (#cfebee). */
+.ds-link--contrast {
+  color: #cfebee;
+}
+
+.ds-link--contrast:hover {
+  color: #cfcfcf;
+}
+
+.ds-link--contrast:active {
+  color: #f8f8f8;
+}
+
+.ds-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-button {
+    transition: none;
+  }
+  .ds-button:active:not(:disabled) {
+    transform: none;
+  }
+}

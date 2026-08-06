@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #f8f8f8;
+  font-family: var(--font-ui);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  overflow: auto;
+}
+
+/* margin:auto centers the frame but never clips it when the window is
+   shorter than the phone — the page scrolls instead */
+.phone {
+  margin: auto;
+}
+
+button {
+  font: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Phone viewport: exact 390x844 on desktop, full-viewport on real mobile */
+.phone {
+  width: 390px;
+  height: 844px;
+  background: var(--background-default);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.16);
+  border-radius: 24px;
+}
+
+/* Near-phone-width viewports: fill edge to edge, no frame */
+@media (max-width: 600px) {
+  #root {
+    align-items: stretch;
+    justify-content: stretch;
+  }
+  .phone {
+    width: 100%;
+    height: 100dvh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}

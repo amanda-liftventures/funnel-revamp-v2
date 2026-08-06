@@ -1,0 +1,37 @@
+.progress-bar {
+  flex: none;
+  height: 36px;
+  background: var(--background-default);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-left: 8px;
+  padding-right: 16px;
+}
+
+.progress-back {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.progress-back img {
+  width: 14.4px;
+}
+
+.progress-track {
+  flex: 1;
+  height: 4px;
+  background: #ededed;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #006c7a;
+  transition: width 0.35s ease;
+}

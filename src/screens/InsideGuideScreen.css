@@ -1,0 +1,122 @@
+.inside-content {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: #ffffff;
+}
+
+/* Exact Figma radial: ellipse 235x453 at (195, 289), #D6E3F2 0% → #FFFFFF 100% */
+.inside-content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    235px 453px at 195px 289px,
+    rgb(214, 227, 242) 0%,
+    rgb(255, 255, 255) 100%
+  );
+  pointer-events: none;
+}
+
+.inside-body,
+.inside-claims {
+  position: relative;
+}
+
+.inside-body {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+
+/* Export includes ~7.65px shadow bleed per side; keep layout box 140x195 */
+.inside-cover {
+  width: 140px;
+  height: 195px;
+  position: relative;
+}
+
+.inside-cover img {
+  position: absolute;
+  left: -7.65px;
+  top: -7.65px;
+  width: 155.3px;
+  height: 210.3px;
+  max-width: none;
+}
+
+.inside-headline {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: 0.25px;
+  color: #212121;
+  text-align: center;
+  width: 342px;
+}
+
+.inside-headline em {
+  font-weight: 600;
+  font-style: italic;
+}
+
+.inside-claims {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+}
+
+.inside-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 16px;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+}
+
+.inside-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: #d6e3f2;
+  border-radius: 100px;
+  min-height: 32px;
+  padding: 4px 12px;
+}
+
+/* Each glyph SVG is exported at its exact size within the 16px icon box
+   (e.g. interests 13.33x12.67) — render at intrinsic size, no scaling */
+.inside-chip img {
+  width: auto;
+  height: auto;
+  flex: none;
+}
+
+.inside-chip span {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.25px;
+  color: #1c416c;
+}
+
+.inside-much-more {
+  font-family: 'Caveat', cursive;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.2;
+  color: #616161;
+  text-align: right;
+  width: 293px;
+}

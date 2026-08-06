@@ -1,0 +1,294 @@
+{
+  "book": {
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald"
+  },
+  "checkoutUrl": "https://www.supersummary.com/checkout",
+  "steps": [
+    {
+      "id": "welcome",
+      "type": "welcome"
+    },
+    {
+      "id": "value-props",
+      "type": "value-props"
+    },
+    {
+      "id": "q-where-are-you",
+      "type": "question",
+      "select": "single",
+      "title": "Where are you in *The Great Gatsby*?",
+      "coverImage": "/assets/03-q-where-are-you/gatsby-cover.png",
+      "options": [
+        {
+          "value": "not-started",
+          "label": "Haven't started it yet",
+          "icon": "/assets/03-q-where-are-you/icon-start.svg"
+        },
+        {
+          "value": "reading-now",
+          "label": "Reading it right now",
+          "icon": "/assets/03-q-where-are-you/icon-local-library.svg"
+        },
+        {
+          "value": "stopped-partway",
+          "label": "Stopped partway through",
+          "icon": "/assets/03-q-where-are-you/icon-stop-circle.svg"
+        },
+        {
+          "value": "just-finished",
+          "label": "Just finished it",
+          "icon": "/assets/03-q-where-are-you/icon-bookmark-added.svg"
+        },
+        {
+          "value": "read-a-while-back",
+          "label": "Read it a while back",
+          "icon": "/assets/03-q-where-are-you/icon-history.svg"
+        }
+      ]
+    },
+    {
+      "id": "q-what-brought-you",
+      "type": "question",
+      "select": "single",
+      "title": "What brought you here today?",
+      "options": [
+        {
+          "value": "going-deeper",
+          "label": "I'm going deeper on a book",
+          "icon": "/assets/04-q-what-brought-you/icon-auto-stories.svg"
+        },
+        {
+          "value": "book-club",
+          "label": "I'm preparing for a book club",
+          "icon": "/assets/04-q-what-brought-you/icon-groups-2.svg"
+        },
+        {
+          "value": "studying",
+          "label": "I'm studying for a class",
+          "icon": "/assets/04-q-what-brought-you/icon-local-library.svg"
+        },
+        {
+          "value": "teaching",
+          "label": "I'm teaching a class",
+          "icon": "/assets/04-q-what-brought-you/icon-school.svg"
+        },
+        {
+          "value": "exploring",
+          "label": "I'm exploring what to read next",
+          "icon": "/assets/04-q-what-brought-you/icon-search.svg"
+        },
+        {
+          "value": "helping-someone",
+          "label": "I'm helping someone with a book",
+          "icon": "/assets/04-q-what-brought-you/icon-supervisor-account.svg"
+        },
+        {
+          "value": "other",
+          "label": "Other",
+          "icon": "/assets/04-q-what-brought-you/icon-pending.svg"
+        }
+      ]
+    },
+    {
+      "id": "trust",
+      "type": "trust"
+    },
+    {
+      "id": "q-books-per-year",
+      "type": "question",
+      "select": "single",
+      "title": "How many books do you typically read in a year?",
+      "options": [
+        {
+          "value": "0-5",
+          "label": "0 - 5",
+          "icon": "/assets/06-q-books-per-year/icon-book2.svg"
+        },
+        {
+          "value": "6-12",
+          "label": "6 - 12",
+          "icon": "/assets/06-q-books-per-year/icon-book2.svg"
+        },
+        {
+          "value": "13-24",
+          "label": "13 - 24",
+          "icon": "/assets/06-q-books-per-year/icon-book2.svg"
+        },
+        {
+          "value": "25-49",
+          "label": "25 - 49",
+          "icon": "/assets/06-q-books-per-year/icon-book2.svg"
+        },
+        {
+          "value": "50-99",
+          "label": "50 - 99",
+          "icon": "/assets/06-q-books-per-year/icon-book2.svg"
+        },
+        {
+          "value": "100-plus",
+          "label": "100+",
+          "icon": "/assets/06-q-books-per-year/icon-book2.svg"
+        }
+      ]
+    },
+    {
+      "id": "q-how-often",
+      "type": "question",
+      "select": "single",
+      "title": "How often do you read books?",
+      "options": [
+        {
+          "value": "daily",
+          "label": "Daily",
+          "icon": "/assets/07-q-how-often/icon-daily-today.svg"
+        },
+        {
+          "value": "weekly",
+          "label": "Weekly",
+          "icon": "/assets/07-q-how-often/icon-weekly-date-range.svg"
+        },
+        {
+          "value": "monthly",
+          "label": "Monthly",
+          "icon": "/assets/07-q-how-often/icon-monthly-calendar-month.svg"
+        },
+        {
+          "value": "rarely",
+          "label": "Rarely",
+          "icon": "/assets/07-q-how-often/icon-rarely-event-busy.svg"
+        }
+      ]
+    },
+    {
+      "id": "q-genres",
+      "type": "question",
+      "select": "multi",
+      "maxSelections": 3,
+      "title": "Pick your top genres.",
+      "subtitle": "Select up to 3 options.",
+      "options": [
+        {
+          "value": "literary-fiction",
+          "label": "Literary Fiction",
+          "icon": "/assets/08-q-genres/icon-book2.svg"
+        },
+        {
+          "value": "contemporary-fiction",
+          "label": "Contemporary Fiction",
+          "icon": "/assets/08-q-genres/icon-book2.svg"
+        },
+        {
+          "value": "historical-fiction",
+          "label": "Historical Fiction",
+          "icon": "/assets/08-q-genres/icon-book2.svg"
+        },
+        {
+          "value": "mystery-thriller",
+          "label": "Mystery & Thriller",
+          "icon": "/assets/08-q-genres/icon-book2.svg"
+        },
+        {
+          "value": "scifi-fantasy",
+          "label": "Science Fiction & Fantasy",
+          "icon": "/assets/08-q-genres/icon-book2.svg"
+        },
+        {
+          "value": "romance",
+          "label": "Romance",
+          "icon": "/assets/08-q-genres/icon-book2.svg"
+        },
+        {
+          "value": "classic-literature",
+          "label": "Classic Literature",
+          "icon": "/assets/08-q-genres/icon-book2.svg"
+        },
+        {
+          "value": "memoir-biography",
+          "label": "Memoir & Biography",
+          "icon": "/assets/08-q-genres/icon-book2.svg"
+        },
+        {
+          "value": "self-help",
+          "label": "Self-Help & Personal Growth",
+          "icon": "/assets/08-q-genres/icon-book2.svg"
+        },
+        {
+          "value": "business-finance",
+          "label": "Business & Finance",
+          "icon": "/assets/08-q-genres/icon-book2.svg"
+        },
+        {
+          "value": "mix-of-everything",
+          "label": "I read a mix of everything",
+          "icon": "/assets/08-q-genres/icon-book2.svg"
+        }
+      ]
+    },
+    {
+      "id": "belonging",
+      "type": "belonging"
+    },
+    {
+      "id": "q-what-can-we-help",
+      "type": "question",
+      "select": "multi",
+      "title": "What can we help you do?",
+      "subtitle": "Select all that apply.",
+      "options": [
+        {
+          "value": "better-discussions",
+          "label": "Have better discussions about it",
+          "icon": "/assets/10-q-what-can-we-help/icon-question-answer.svg"
+        },
+        {
+          "value": "understand-deeply",
+          "label": "Understand it more deeply",
+          "icon": "/assets/10-q-what-can-we-help/icon-auto-stories.svg"
+        },
+        {
+          "value": "track-characters",
+          "label": "Keep track of characters and details",
+          "icon": "/assets/10-q-what-can-we-help/icon-track-changes.svg"
+        },
+        {
+          "value": "next-great-read",
+          "label": "Find my next great read",
+          "icon": "/assets/10-q-what-can-we-help/icon-bookmark-add.svg"
+        },
+        {
+          "value": "author-context",
+          "label": "Get context on the author and book",
+          "icon": "/assets/10-q-what-can-we-help/icon-history-edu.svg"
+        },
+        {
+          "value": "test-knowledge",
+          "label": "Test my knowledge",
+          "icon": "/assets/10-q-what-can-we-help/icon-lightbulb.svg"
+        },
+        {
+          "value": "make-time",
+          "label": "Make time to finish it",
+          "icon": "/assets/10-q-what-can-we-help/icon-watch-later.svg"
+        }
+      ]
+    },
+    {
+      "id": "way-more",
+      "type": "way-more"
+    },
+    {
+      "id": "inside-guide",
+      "type": "inside-guide"
+    },
+    {
+      "id": "subscribe",
+      "type": "subscribe"
+    },
+    {
+      "id": "create-account",
+      "type": "create-account",
+      "image": "/assets/15-create-account/create-account.png"
+    }
+  ]
+}

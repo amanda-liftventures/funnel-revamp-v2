@@ -1,0 +1,138 @@
+.waymore-content {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: #f8f8f8;
+}
+
+/* Exact Figma radial: ellipse 265.1x425 at (211.5, 284),
+   #F6E5E7 15% → #F8F8F8 90%, painted at 0.7 opacity over #F8F8F8 */
+.waymore-content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    265.1px 425px at 211.5px 284px,
+    rgb(246, 229, 231) 15%,
+    rgb(248, 248, 248) 90%
+  );
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.waymore-heading-block,
+.waymore-features {
+  position: relative;
+}
+
+.waymore-heading-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.waymore-highlight {
+  position: absolute;
+  left: 53px;
+  top: 6.5px;
+  width: 185px;
+  height: 35px;
+  transform: rotate(180deg);
+  pointer-events: none;
+}
+
+.waymore-highlight img {
+  position: absolute;
+}
+
+.waymore-highlight img:nth-child(1) { inset: 0 7.5% 64.68% 2.52%; width: 89.98%; height: 35.32%; }
+.waymore-highlight img:nth-child(2) { inset: 21.68% 0 50.05% 4.39%; width: 95.61%; height: 28.27%; }
+.waymore-highlight img:nth-child(3) { inset: 41.18% 1.53% 28.12% 3.16%; width: 95.31%; height: 30.7%; }
+.waymore-highlight img:nth-child(4) { inset: 57.47% 6.24% 14.9% 0.1%; width: 93.66%; height: 27.63%; }
+.waymore-highlight img:nth-child(5) { inset: 73.91% 7.11% 0 0; width: 92.89%; height: 26.09%; }
+
+.waymore-headline {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.2;
+  color: #212121;
+  text-align: center;
+}
+
+.waymore-subhead {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  color: #616161;
+  text-align: center;
+}
+
+.waymore-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 390px;
+  padding: 24px;
+}
+
+.waymore-card {
+  display: flex;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 12px;
+  overflow: clip;
+  text-align: left;
+  width: 100%;
+}
+
+.waymore-card-tile {
+  width: 112px;
+  height: 96px;
+  border-radius: 8px;
+  flex: none;
+  object-fit: cover;
+}
+
+.waymore-card {
+  flex-direction: row;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.waymore-card-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.waymore-card-title {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.25px;
+  color: #212121;
+}
+
+.waymore-card-body {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.25px;
+  color: #616161;
+}

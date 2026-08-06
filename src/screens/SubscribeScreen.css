@@ -1,0 +1,170 @@
+.subscribe-content {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16px;
+  position: relative;
+  background: #f8f8f8;
+}
+
+/* Exact Figma radial: ellipse 265.1x425 at (211.5, 284),
+   #E8F5E2 15% → #F8F8F8 90%, painted at 0.7 opacity over #F8F8F8 */
+.subscribe-content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    265.1px 425px at 211.5px 284px,
+    rgb(232, 245, 226) 15%,
+    rgb(248, 248, 248) 90%
+  );
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.subscribe-title-block,
+.subscribe-benefits {
+  position: relative;
+}
+
+.subscribe-title-block {
+  position: relative;
+  width: 100%;
+  padding: 16px 24px;
+}
+
+.subscribe-highlight {
+  position: absolute;
+  left: 201px;
+  top: 21px;
+  width: 168px;
+  height: 35px;
+  transform: rotate(180deg);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.subscribe-highlight img {
+  position: absolute;
+}
+
+.subscribe-highlight img:nth-child(1) { inset: 0 7.5% 64.68% 2.52%; width: 89.98%; height: 35.32%; }
+.subscribe-highlight img:nth-child(2) { inset: 21.68% 0 50.05% 4.39%; width: 95.61%; height: 28.27%; }
+.subscribe-highlight img:nth-child(3) { inset: 41.18% 1.53% 28.12% 3.16%; width: 95.31%; height: 30.7%; }
+.subscribe-highlight img:nth-child(4) { inset: 57.47% 6.24% 14.9% 0.1%; width: 93.66%; height: 27.63%; }
+.subscribe-highlight img:nth-child(5) { inset: 73.91% 7.11% 0 0; width: 92.89%; height: 26.09%; }
+
+.subscribe-headline {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.2;
+  color: #212121;
+  text-align: center;
+}
+
+.subscribe-benefits {
+  width: 390px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 40px 24px;
+}
+
+.subscribe-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 8px 12px;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.25px;
+  color: #212121;
+}
+
+.subscribe-check {
+  width: 24px;
+  height: 24px;
+  flex: none;
+}
+
+.subscribe-ratings {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  padding: 32px 0;
+}
+
+.rating-widget {
+  position: relative;
+  width: 145.627px;
+  height: 48px;
+}
+
+.rating-widget img {
+  position: absolute;
+}
+
+.rw-logo--apple {
+  width: 22.78px;
+  height: 23.04px;
+  left: 11.39px;
+  top: 12.48px;
+}
+
+.rw-logo--play {
+  width: 21.861px;
+  height: 24.96px;
+  left: 11.39px;
+  top: 11.52px;
+}
+
+.rw-score--apple {
+  width: 21.378px;
+  left: 42.02px;
+  top: 9.05px;
+}
+
+.rw-score--play {
+  width: 21.252px;
+  left: 41.11px;
+  top: 9.2px;
+}
+
+.rw-stars {
+  position: absolute;
+  left: 67.07px;
+  top: 8.03px;
+  display: flex;
+  gap: 5.5px;
+}
+
+.rw-stars img {
+  position: static;
+  width: 12.4px;
+  height: 11.776px;
+}
+
+.rw-label--apple {
+  width: 79.597px;
+  left: 43.06px;
+  top: 29.63px;
+}
+
+.rw-label--play {
+  width: 92.856px;
+  left: 42.15px;
+  top: 29.15px;
+}
+
+.subscribe-footer .footer-cta {
+  padding: 16px 16px 24px;
+}

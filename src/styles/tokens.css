@@ -1,0 +1,59 @@
+/* SuperSummary Design System 2.0 — tokens (source: supersummary-design-system skill) */
+:root {
+  /* Brand */
+  --brand-main: #1a7b87; /* acqua-400 */
+  --acqua-950: #f0f9fa;
+  --acqua-900: #cfebee;
+  --acqua-850: #aedde2;
+  --acqua-800: #90d0d7;
+  --acqua-700: #50b5c0;
+  --acqua-600: #33a9b5;
+  --acqua-500: #27929e;
+  --acqua-300: #006c7a;
+  --acqua-200: #005863;
+  --acqua-150: #01434b;
+  --acqua-100: #002d33;
+
+  /* Text */
+  --text-primary: #212121;
+  --text-secondary: #616161;
+
+  /* Backgrounds */
+  --background-default: #ffffff;
+  --background-paper: #f8f8f8;
+
+  /* Borders */
+  --border-main: #bfbfbf;
+  --border-light: #d9d9d9;
+
+  /* Greys */
+  --grey-900: #ededed;
+  --grey-850: #e3e3e3;
+  --grey-800: #d9d9d9;
+  --grey-500: #909090;
+  --grey-400: #797979;
+  --grey-300: #616161;
+
+  /* Buttons */
+  --button-primary-body: #1a7b87;
+  --button-primary-body-hover: #006c7a;
+  --button-primary-body-active: #27929e;
+  --button-primary-label: #ffffff;
+  --button-primary-label-disable: #909090;
+
+  /* Feedback */
+  --success-main: #00631a;
+  --error-main: #8b1417;
+
+  /* Typography */
+  --font-ui: 'Open Sans', -apple-system, sans-serif;
+  --font-reading: 'Source Serif Pro', Georgia, serif;
+  --font-display: 'General Sans', 'Open Sans', sans-serif;
+
+  /* Radii */
+  --radius-x-smaller: 4px;
+  --radius-smaller: 8px;
+  --radius-small: 12px;
+  --radius-default: 16px;
+  --radius-rounded: 100px;
+}

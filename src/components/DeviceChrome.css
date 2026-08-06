@@ -1,0 +1,117 @@
+.device-chrome {
+  flex: none;
+  background: #ffffff;
+}
+
+/* iOS status bar — 390x38, SVG glyph geometry from Figma */
+.status-bar {
+  position: relative;
+  height: 38px;
+  overflow: hidden;
+}
+
+.status-time {
+  position: absolute;
+  width: 28.426px;
+  height: 11.089px;
+  left: 33.45px;
+  top: 17.17px;
+}
+
+.status-signal {
+  position: absolute;
+  width: 17px;
+  height: 10.667px;
+  right: 64.33px;
+  top: 17.67px;
+}
+
+.status-wifi {
+  position: absolute;
+  width: 15.272px;
+  height: 10.966px;
+  right: 44.03px;
+  top: 17.33px;
+}
+
+.status-battery-outline {
+  position: absolute;
+  width: 22px;
+  height: 11.333px;
+  right: 17px;
+  top: 17.33px;
+}
+
+.status-battery-cap {
+  position: absolute;
+  width: 1.328px;
+  height: 4px;
+  right: 14.67px;
+  top: 21px;
+}
+
+.status-battery-fill {
+  position: absolute;
+  width: 18px;
+  height: 7.333px;
+  right: 19px;
+  top: 19.33px;
+}
+
+/* Browser chrome bar — 390x55 */
+.chrome-bar {
+  position: relative;
+  height: 55px;
+  background: #ffffff;
+  box-shadow: 0px 0.4px 0px 0px #ccc;
+}
+
+.chrome-bar-input {
+  position: absolute;
+  left: 11px;
+  right: 10px;
+  bottom: 10px;
+  height: 36px;
+  background: #e8eaed;
+  border-radius: 30px;
+}
+
+.chrome-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.chrome-lock {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chrome-lock img {
+  width: 7.672px;
+  height: 11.508px;
+}
+
+.chrome-url {
+  font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 18px;
+  color: #202124;
+  white-space: nowrap;
+}
+
+.chrome-share {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14.538px;
+  height: 19.385px;
+}
