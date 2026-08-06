@@ -7,12 +7,18 @@ interface FooterCTAProps {
   disabled?: boolean
   /** Hide the trailing arrow (e.g. final subscribe CTA) */
   showArrow?: boolean
+  /** Reveal the CTA 1s after the screen appears (non-question screens) */
+  delayed?: boolean
 }
 
-export function FooterCTA({ label, onClick, disabled = false, showArrow = true }: FooterCTAProps) {
+export function FooterCTA({ label, onClick, disabled = false, showArrow = true, delayed = false }: FooterCTAProps) {
   return (
     <div className="footer-cta">
-      <button className="ds-button ds-button--primary" onClick={onClick} disabled={disabled}>
+      <button
+        className={`ds-button ds-button--primary${delayed ? ' ds-button--delayed' : ''}`}
+        onClick={onClick}
+        disabled={disabled}
+      >
         <span>{label}</span>
         {showArrow && (
           <span className="ds-button-icon">

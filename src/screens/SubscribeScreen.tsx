@@ -58,7 +58,7 @@ export function SubscribeScreen({ onSubscribe }: { onSubscribe: () => void }) {
         </div>
       </div>
       <div className="subscribe-footer">
-        <FooterCTA label="Next" onClick={onSubscribe} />
+        <FooterCTA label="Next" onClick={onSubscribe} delayed />
       </div>
     </>
   )

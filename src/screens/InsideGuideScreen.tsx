@@ -37,7 +37,7 @@ export function InsideGuideScreen({ onNext }: { onNext: () => void }) {
           <p className="inside-much-more">+ much more</p>
         </div>
       </div>
-      <FooterCTA label="Next" onClick={onNext} />
+      <FooterCTA label="Next" onClick={onNext} delayed />
     </>
   )
 }

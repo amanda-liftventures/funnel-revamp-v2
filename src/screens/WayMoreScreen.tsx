@@ -58,7 +58,7 @@ export function WayMoreScreen({ onNext }: WayMoreScreenProps) {
           ))}
         </div>
       </div>
-      <FooterCTA label="Next" onClick={onNext} />
+      <FooterCTA label="Next" onClick={onNext} delayed />
     </>
   )
 }

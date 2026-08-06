@@ -37,7 +37,7 @@ export function ValuePropsScreen({ onNext }: { onNext: () => void }) {
           ))}
         </div>
       </div>
-      <FooterCTA label="Next" onClick={onNext} />
+      <FooterCTA label="Next" onClick={onNext} delayed />
     </>
   )
 }

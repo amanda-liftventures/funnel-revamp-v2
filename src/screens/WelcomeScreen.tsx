@@ -39,7 +39,10 @@ export function WelcomeScreen({ onGetStarted }: WelcomeScreenProps) {
         </div>
       </div>
       <div className="welcome-footer">
-        <button className="ds-button ds-button--primary-contrast welcome-cta" onClick={onGetStarted}>
+        <button
+          className="ds-button ds-button--primary-contrast ds-button--delayed welcome-cta"
+          onClick={onGetStarted}
+        >
           <span>Get Started</span>
           <span className="ds-button-icon">
             <img src={arrowForward} alt="" />

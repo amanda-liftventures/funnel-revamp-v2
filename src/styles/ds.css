@@ -130,11 +130,33 @@
   border-radius: 2px;
 }
 
+/* Delayed reveal: CTA appears 1s after its screen mounts.
+   `backwards` fill keeps it hidden (and unclickable) during the delay. */
+.ds-button--delayed {
+  animation: ds-cta-appear 0.3s ease 1s backwards;
+}
+
+@keyframes ds-cta-appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ds-button {
     transition: none;
   }
   .ds-button:active:not(:disabled) {
     transform: none;
+  }
+  .ds-button--delayed {
+    animation: ds-cta-appear 0.01s linear 1s backwards;
   }
 }

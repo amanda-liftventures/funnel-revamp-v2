@@ -48,7 +48,7 @@ export function BelongingScreen({ onNext }: { onNext: () => void }) {
         <div className="belonging-fade" aria-hidden="true" />
       </div>
       <div className="belonging-footer">
-        <FooterCTA label="Next" onClick={onNext} />
+        <FooterCTA label="Next" onClick={onNext} delayed />
       </div>
     </>
   )

@@ -30,7 +30,7 @@ export function TrustScreen({ onNext }: { onNext: () => void }) {
           alt="Rated Excellent — 995 reviews on Trustpilot"
         />
       </div>
-      <FooterCTA label="Next" onClick={onNext} />
+      <FooterCTA label="Next" onClick={onNext} delayed />
     </>
   )
 }
