@@ -4,6 +4,7 @@ import { ProgressBar } from './components/ProgressBar'
 import { WelcomeScreen } from './screens/WelcomeScreen'
 import { ValuePropsScreen } from './screens/ValuePropsScreen'
 import { QuestionScreen } from './screens/QuestionScreen'
+import { BookSliderScreen } from './screens/BookSliderScreen'
 import { TrustScreen } from './screens/TrustScreen'
 import { BelongingScreen } from './screens/BelongingScreen'
 import { WayMoreScreen } from './screens/WayMoreScreen'
@@ -60,6 +61,15 @@ export default function App() {
           <QuestionScreen
             step={s}
             answers={answers[s.id] ?? []}
+            onAnswer={(values) => setAnswers((a) => ({ ...a, [s.id]: values }))}
+            onNext={next}
+          />
+        )
+      case 'slider':
+        return (
+          <BookSliderScreen
+            step={s}
+            answer={answers[s.id] ?? []}
             onAnswer={(values) => setAnswers((a) => ({ ...a, [s.id]: values }))}
             onNext={next}
           />

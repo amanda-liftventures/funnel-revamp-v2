@@ -13,12 +13,8 @@ interface FooterCTAProps {
 
 export function FooterCTA({ label, onClick, disabled = false, showArrow = true, delayed = false }: FooterCTAProps) {
   return (
-    <div className="footer-cta">
-      <button
-        className={`ds-button ds-button--primary${delayed ? ' ds-button--delayed' : ''}`}
-        onClick={onClick}
-        disabled={disabled}
-      >
+    <div className={`footer-cta${delayed ? ' footer-cta--delayed' : ''}`}>
+      <button className="ds-button ds-button--primary" onClick={onClick} disabled={disabled}>
         <span>{label}</span>
         {showArrow && (
           <span className="ds-button-icon">

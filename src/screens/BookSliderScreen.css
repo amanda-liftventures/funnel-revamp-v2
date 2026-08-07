@@ -1,0 +1,201 @@
+.slider-content {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-default);
+  overflow-y: auto;
+}
+
+.slider-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 96px;
+  justify-content: center;
+  padding: 16px;
+  flex: none;
+}
+
+.slider-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: 0.25px;
+  color: var(--text-primary);
+}
+
+.slider-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  padding: 40px 0;
+  width: 100%;
+}
+
+.slider-value {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: 0.25px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.slider-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 0 32px;
+  width: 100%;
+  flex: none;
+}
+
+/* <Icon> Acqua chip: 32x32, radius 8, bg support-aqua[6] */
+.slider-step-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #cfebee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.slider-step-btn:hover:not(:disabled) {
+  background: #aedde2;
+}
+
+.slider-step-btn:active:not(:disabled) {
+  background: #90d0d7;
+}
+
+.slider-step-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Stepped track: h4 rounded rail + one dot per range, active dot 12px teal */
+.slider-track-area {
+  position: relative;
+  flex: 1;
+  height: 12px;
+  touch-action: none;
+  cursor: pointer;
+}
+
+.slider-track-area:focus-visible {
+  outline: 2px solid #006c7a;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.slider-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 4px;
+  height: 4px;
+  border-radius: 100px;
+  background: #ededed;
+}
+
+.slider-dot {
+  position: absolute;
+  top: 50%;
+  width: 7.5px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ededed;
+  transform: translate(-50%, -50%);
+  transition: width 0.15s ease, height 0.15s ease, background 0.15s ease;
+}
+
+.slider-dot--active {
+  width: 11.2px;
+  height: 12px;
+  background: #1a7b87;
+}
+
+/* Book rectangles: 30x40, radius 4, border-light, wrap centered */
+.slider-books {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: 24px;
+  width: 100%;
+}
+
+.slider-book {
+  width: 30px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+  flex: none;
+}
+
+.slider-book--new {
+  animation: book-pop 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+
+/* Reverse of book-pop, played when the amount decreases (last book first).
+   Also collapses the book's slot (width + flex gap) so the pile reflows
+   smoothly book-by-book instead of snapping once pruning happens. */
+.slider-book--out {
+  animation: book-pop-out 0.3s cubic-bezier(0.55, 0, 0.66, 0.44) both;
+}
+
+@keyframes book-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes book-pop-out {
+  0% {
+    opacity: 1;
+    transform: none;
+    width: 30px;
+    margin-right: 0;
+    border-width: 1px;
+  }
+  60% {
+    opacity: 0;
+    transform: scale(0.5) translateY(6px);
+    width: 30px;
+    margin-right: 0;
+    border-width: 1px;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5) translateY(6px);
+    width: 0;
+    margin-right: -4px;
+    border-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slider-book--new,
+  .slider-book--out {
+    animation-duration: 0.01s;
+    animation-delay: 0s;
+  }
+  .slider-dot {
+    transition: none;
+  }
+}

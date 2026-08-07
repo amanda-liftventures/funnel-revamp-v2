@@ -10,10 +10,6 @@
       "type": "welcome"
     },
     {
-      "id": "value-props",
-      "type": "value-props"
-    },
-    {
       "id": "q-where-are-you",
       "type": "question",
       "select": "single",
@@ -91,44 +87,49 @@
       ]
     },
     {
+      "id": "value-props",
+      "type": "value-props"
+    },
+    {
       "id": "trust",
       "type": "trust"
     },
     {
       "id": "q-books-per-year",
-      "type": "question",
-      "select": "single",
+      "type": "slider",
       "title": "How many books do you typically read in a year?",
+      "unit": "books",
+      "defaultIndex": 2,
       "options": [
         {
           "value": "0-5",
-          "label": "0 - 5",
-          "icon": "/assets/06-q-books-per-year/icon-book2.svg"
+          "label": "0-5",
+          "count": 5
         },
         {
           "value": "6-12",
-          "label": "6 - 12",
-          "icon": "/assets/06-q-books-per-year/icon-book2.svg"
+          "label": "6-12",
+          "count": 12
         },
         {
           "value": "13-24",
-          "label": "13 - 24",
-          "icon": "/assets/06-q-books-per-year/icon-book2.svg"
+          "label": "13-24",
+          "count": 24
         },
         {
           "value": "25-49",
-          "label": "25 - 49",
-          "icon": "/assets/06-q-books-per-year/icon-book2.svg"
+          "label": "25-49",
+          "count": 49
         },
         {
           "value": "50-99",
-          "label": "50 - 99",
-          "icon": "/assets/06-q-books-per-year/icon-book2.svg"
+          "label": "50-99",
+          "count": 99
         },
         {
           "value": "100-plus",
           "label": "100+",
-          "icon": "/assets/06-q-books-per-year/icon-book2.svg"
+          "count": 100
         }
       ]
     },

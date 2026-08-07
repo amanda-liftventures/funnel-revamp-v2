@@ -8,9 +8,12 @@ const chips = [
   { icon: `${A}/chip-icon-interests.svg`, label: 'Symbols & Motifs' },
   { icon: `${A}/chip-icon-question-answer.svg`, label: 'Discussion Questions' },
   { icon: `${A}/chip-icon-menu-book.svg`, label: 'Chapter Summaries' },
-  { icon: `${A}/chip-icon-format-quote.svg`, label: 'Important Quotes' },
+  { icon: `${A}/chip-icon-live-help.svg`, label: 'Quizzes' },
   { icon: `${A}/chip-icon-face.svg`, label: 'Character Lists & Analyses' },
   { icon: `${A}/chip-icon-theater-comedy.svg`, label: 'Themes' },
+  { icon: `${A}/chip-icon-restaurant.svg`, label: 'Recipes' },
+  { icon: `${A}/chip-icon-format-quote.svg`, label: 'Important Quotes' },
+  { icon: `${A}/chip-icon-chatbot.svg`, label: 'Ask SuperSummary' },
 ]
 
 export function InsideGuideScreen({ onNext }: { onNext: () => void }) {

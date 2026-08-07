@@ -130,10 +130,22 @@
   border-radius: 2px;
 }
 
-/* Delayed reveal: CTA appears 1s after its screen mounts.
-   `backwards` fill keeps it hidden (and unclickable) during the delay. */
-.ds-button--delayed {
+/* Delayed reveal: the CTA — including its white footer background — appears
+   1s after its screen mounts. `backwards` fill keeps it hidden (and
+   unclickable) during the delay. The delayed footer overlays the screen
+   (matching the Figma payoff frames' absolute footers) so its reserved area
+   shows the screen background, not a dead white strip, while hidden. */
+.ds-button--delayed,
+.footer-cta--delayed {
   animation: ds-cta-appear 0.3s ease 1s backwards;
+}
+
+.footer-cta--delayed {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-bottom: 24px;
 }
 
 @keyframes ds-cta-appear {
@@ -156,7 +168,8 @@
   .ds-button:active:not(:disabled) {
     transform: none;
   }
-  .ds-button--delayed {
+  .ds-button--delayed,
+  .footer-cta--delayed {
     animation: ds-cta-appear 0.01s linear 1s backwards;
   }
 }

@@ -29,6 +29,21 @@ export interface QuestionStep extends BaseStep {
   options: FunnelOption[]
 }
 
+export interface SliderOption {
+  value: string
+  label: string
+  /** Highest amount in the range — number of book rectangles to render */
+  count: number
+}
+
+export interface SliderStep extends BaseStep {
+  type: 'slider'
+  title: string
+  unit: string
+  defaultIndex: number
+  options: SliderOption[]
+}
+
 export interface TrustStep extends BaseStep {
   type: 'trust'
 }
@@ -59,6 +74,7 @@ export type FunnelStep =
   | WelcomeStep
   | ValuePropsStep
   | QuestionStep
+  | SliderStep
   | TrustStep
   | BelongingStep
   | WayMoreStep
