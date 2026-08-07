@@ -17,7 +17,10 @@ interface BookSliderScreenProps {
 export function BookSliderScreen({ step, answer, onAnswer, onNext }: BookSliderScreenProps) {
   const answeredIndex = step.options.findIndex((o) => o.value === answer[0])
   const [index, setIndex] = useState(answeredIndex >= 0 ? answeredIndex : step.defaultIndex)
-  const prevCountRef = useRef(step.options[index].count)
+  // Starts at 0 so the whole initial pile plays the staggered "adding"
+  // animation when the screen is entered — it reads as books stacking up
+  // rather than already being there.
+  const prevCountRef = useRef(0)
   // Stable random color per book position; extended lazily as the count grows
   const colorsRef = useRef<string[]>([])
   const trackRef = useRef<HTMLDivElement>(null)
