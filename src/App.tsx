@@ -13,22 +13,27 @@ import { SubscribeScreen } from './screens/SubscribeScreen'
 import { CreateAccountScreen } from './screens/CreateAccountScreen'
 import funnelJson from './data/funnel.json'
 import type { FunnelData, FunnelStep } from './data/types'
+import { getVariant, stepsForVariant } from './variant'
 
 const funnel = funnelJson as FunnelData
 
-// This build is Variant A: the "Way more than a summary" screen only.
-// Variant B (the "Spark strong discussions" detail as its own screen,
-// src/screens/SparkDetailScreen.tsx) will be wired up as an alternative later.
+// Usability-test variants, chosen by `?variant=` on the URL:
+//   ?variant=complete → the full flow (default)
+//   ?variant=compact  → same behaviour, minus the reading-habit questions
+// Read once at module load so the flow can't change mid-session.
+const variant = getVariant()
+const steps = stepsForVariant(funnel.steps, variant)
+
 export default function App() {
   const [stepIndex, setStepIndex] = useState(0)
   // Answers live for the session only (retained when navigating back/forward);
   // every fresh load starts with all options in their default state.
   const [answers, setAnswers] = useState<Record<string, string[]>>({})
 
-  const step: FunnelStep = funnel.steps[stepIndex]
+  const step: FunnelStep = steps[stepIndex]
 
   function next() {
-    setStepIndex((i) => Math.min(i + 1, funnel.steps.length - 1))
+    setStepIndex((i) => Math.min(i + 1, steps.length - 1))
   }
 
   function back() {
@@ -40,10 +45,10 @@ export default function App() {
   // no chrome or progress and is excluded from the denominator.
   const isEndScreen = step.type === 'create-account'
   const showProgress = !isEndScreen && stepIndex > 0
-  const progress = stepIndex / (funnel.steps.length - 2)
+  const progress = stepIndex / (steps.length - 2)
 
   return (
-    <div className="phone">
+    <div className="phone" data-variant={variant}>
       {!isEndScreen && <DeviceChrome />}
       {showProgress && <ProgressBar progress={progress} onBack={stepIndex > 0 ? back : undefined} />}
       {renderStep(step)}

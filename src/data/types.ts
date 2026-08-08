@@ -5,8 +5,12 @@ export interface FunnelOption {
   icon?: string
 }
 
+export type FunnelVariant = 'complete' | 'compact'
+
 interface BaseStep {
   id: string
+  /** Variants this step belongs to. Omitted = present in every variant. */
+  variants?: FunnelVariant[]
 }
 
 export interface WelcomeStep extends BaseStep {

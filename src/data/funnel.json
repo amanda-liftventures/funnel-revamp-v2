@@ -131,6 +131,9 @@
           "label": "100+",
           "count": 100
         }
+      ],
+      "variants": [
+        "complete"
       ]
     },
     {
@@ -159,6 +162,9 @@
           "label": "Rarely",
           "icon": "/assets/07-q-how-often/icon-rarely-event-busy.svg"
         }
+      ],
+      "variants": [
+        "complete"
       ]
     },
     {
@@ -224,6 +230,9 @@
           "label": "I read a mix of everything",
           "icon": "/assets/08-q-genres/icon-book2.svg"
         }
+      ],
+      "variants": [
+        "complete"
       ]
     },
     {

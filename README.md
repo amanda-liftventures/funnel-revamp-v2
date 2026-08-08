@@ -1,58 +1,89 @@
 # Mobile Web Funnel Revamp — v2 (Survey-Driven Funnel)
 
 Front-end implementation of the v2 mobile funnel, pixel-matched to the Figma file
-[Mobile App Funnel Revamp [Jira Ticket] | Q2'2026](https://www.figma.com/design/2T3j73CQ4BKfuuXPnb0qFi/?node-id=7814-29771)
-(Page 30). Built with React + Vite + TypeScript; all content comes from mocked JSON.
+[Mobile App Funnel Revamp [Jira Ticket] | Q2'2026](https://www.figma.com/design/2T3j73CQ4BKfuuXPnb0qFi/?node-id=7856-19681)
+(Page 31 — the post-workshop flow). Built with React + Vite + TypeScript; all
+content comes from mocked JSON.
+
+## Usability-test variants
+
+Two flows ship from one build, chosen by `?variant=` on the URL:
+
+| URL | Flow |
+|---|---|
+| `https://<deployment>/?variant=complete` | Full flow, 13 screens (default) |
+| `https://<deployment>/?variant=compact` | Same behaviour, minus the three reading-habit questions (10 screens) |
+
+`complete` is the default, so a link with no parameter — or with an
+unrecognised one — still shows a working funnel. A link that loses its `?`
+(`/variant=compact`) also resolves, via `vercel.json`'s catch-all rewrite plus a
+path fallback in `src/variant.ts`.
+
+Membership lives in the data, not the code: a step is in every variant unless it
+declares `"variants": [...]` in `src/data/funnel.json`. To move a screen between
+variants, edit that one field.
 
 ## Flow
 
 Entry: full-screen takeover when a CTA is tapped on a Study Guide page (mobile only).
 
 1. **Welcome** — "Your next great read starts on SuperSummary" → Get Started
-2. **Value props** — "See what makes us different"
-3. **Q:** Where are you in *The Great Gatsby*? *(single-select, auto-advances)*
-4. **Q:** What brought you here today? *(single)*
+2. **Q:** Where are you in *The Great Gatsby*? *(single-select, auto-advances)*
+3. **Q:** What brought you here today? *(single)*
+4. **Value props** — "See what makes us different"
 5. **Trust** — Trustpilot testimonials
-6. **Q:** How many books do you typically read in a year? *(single)*
-7. **Q:** How often do you read books? *(single)*
-8. **Q:** Pick your top genres *(multi, max 3, Next button)*
+6. **Q:** How many books do you read in a year? *(slider — `complete` only)*
+7. **Q:** How often do you read books? *(single — `complete` only)*
+8. **Q:** Pick your top genres *(multi, max 3 — `complete` only)*
 9. **Belonging** — "Get more out of your book club"
 10. **Q:** What can we help you do? *(multi, Next button)*
-11. **Way more than a summary** — static feature cards (Variant A; Variant B
-    will swap this for the "Spark strong discussions" detail screen,
-    `src/screens/SparkDetailScreen.tsx`, currently unwired)
+11. **Spark strong discussions** — payoff with benefit checklist (Screen 11.4)
 12. **Inside of your Study Guide for The Great Gatsby**
-13. **Subscribe Risk-Free for 7 Days** — hands off to the existing checkout (mocked)
+13. **Subscribe Risk-Free for 7 Days** → **Create Account** (static end screen,
+    marks the hand-off to checkout)
 
 Survey questions are required: single-selects advance on tap (the Figma frames
 have no footer on those steps); multi-selects disable Next until at least one
-option is chosen. Answers persist to `localStorage` (`funnel-v2-answers`).
+option is chosen. Answers live for the session only — a reload starts clean.
 
 ## Behavior notes
 
-- **Progress bar** fills exactly as drawn per Figma frame (`progress` in
-  `src/data/funnel.json`). The design's fills are not monotonic across steps —
-  they mirror the frames on purpose. Switch to `index / steps.length` if product
-  prefers monotonic progress.
+- **Progress bar** shows real progress: equal increments per step, reaching 100%
+  on Subscribe. The denominator follows the active variant, so both flows fill
+  completely. (The Figma frames' fills are representational only.)
+- **Delayed CTA** — on non-question screens the footer (white background *and*
+  button) fades in 1s after the screen mounts, and is unclickable until then.
+- **Book slider** (screen 6) starts at the smallest range so lighter readers only
+  ever add to the pile; books pop in staggered on increase and out in reverse on
+  decrease. All motion respects `prefers-reduced-motion`.
 - **DeviceChrome** (iOS status bar + fake Safari bar) replicates the chrome baked
   into the Figma frames so the app can be pixel-diffed against them. Remove
   `<DeviceChrome />` in `src/App.tsx` for production embedding.
-- The intricate feature-card illustrations (mock mini-UIs) are flattened PNG
-  exports from Figma at 3x, not hand-rebuilt DOM.
+- Intricate illustrations (feature tiles, book covers) are flattened 3x PNG
+  exports from Figma, not hand-rebuilt DOM.
+- Unwired alternates kept for future A/B tests: `WayMoreScreen` and
+  `SparkDetailScreen` (earlier payoff-screen variants).
 
 ## Commands
 
 ```bash
 npm run dev              # dev server on :5173
-npm run build            # production build (dist/)
+npm run build            # production build (dist/) — what Vercel runs
 npm run build:prototype  # single-file clickable prototype (prototype/index.html)
 ```
 
+## Deployment
+
+`vercel.json` pins the Vite preset, `dist` output, and a catch-all rewrite to
+`index.html`. Pushing this branch to a Vercel-connected repo is all that's
+needed; both variant URLs work on the same deployment.
+
 ## Structure
 
-- `src/data/funnel.json` — mocked funnel content (copy, options, icons, progress)
+- `src/data/funnel.json` — mocked funnel content (copy, options, icons, variants)
 - `src/data/types.ts` — step type definitions
-- `src/App.tsx` — funnel state machine (step index, answers, detail view)
+- `src/variant.ts` — URL → variant resolution and step filtering
+- `src/App.tsx` — funnel state machine (step index, answers)
 - `src/components/` — DeviceChrome, ProgressBar, FooterCTA, OptionPill, RichText
 - `src/screens/` — one component per screen
 - `design-specs/` — extracted Figma specs (per-frame .md), frame screenshots
@@ -61,6 +92,7 @@ npm run build:prototype  # single-file clickable prototype (prototype/index.html
 ## Design system
 
 Tokens in `src/styles/tokens.css` come from SuperSummary DS 2.0
-(`OHMReJVPdXRYkjndGFVpf0`). Funnel CTAs use `interactive-primary` (#006C7A);
-type families are General Sans (display), Open Sans (UI), Caveat (handwritten
-annotation).
+(`OHMReJVPdXRYkjndGFVpf0`); `src/styles/ds.css` carries the Button, Link and
+Radio Button state matrices extracted from that file. Funnel CTAs use
+`interactive-primary` (#006C7A); type families are General Sans (display),
+Open Sans (UI), Caveat (handwritten annotation).
