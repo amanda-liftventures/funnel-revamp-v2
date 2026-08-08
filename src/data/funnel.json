@@ -99,7 +99,7 @@
       "type": "slider",
       "title": "How many books do you typically read in a year?",
       "unit": "books",
-      "defaultIndex": 2,
+      "defaultIndex": 0,
       "options": [
         {
           "value": "0-5",
@@ -275,8 +275,8 @@
       ]
     },
     {
-      "id": "way-more",
-      "type": "way-more"
+      "id": "spark-checklist",
+      "type": "spark-checklist"
     },
     {
       "id": "inside-guide",

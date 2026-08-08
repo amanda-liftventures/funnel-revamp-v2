@@ -56,6 +56,11 @@ export interface WayMoreStep extends BaseStep {
   type: 'way-more'
 }
 
+/** Screen 11.4 variant: payoff with a benefit checklist */
+export interface SparkChecklistStep extends BaseStep {
+  type: 'spark-checklist'
+}
+
 export interface InsideGuideStep extends BaseStep {
   type: 'inside-guide'
 }
@@ -78,6 +83,7 @@ export type FunnelStep =
   | TrustStep
   | BelongingStep
   | WayMoreStep
+  | SparkChecklistStep
   | InsideGuideStep
   | SubscribeStep
   | CreateAccountStep

@@ -7,7 +7,7 @@ import { QuestionScreen } from './screens/QuestionScreen'
 import { BookSliderScreen } from './screens/BookSliderScreen'
 import { TrustScreen } from './screens/TrustScreen'
 import { BelongingScreen } from './screens/BelongingScreen'
-import { WayMoreScreen } from './screens/WayMoreScreen'
+import { SparkChecklistScreen } from './screens/SparkChecklistScreen'
 import { InsideGuideScreen } from './screens/InsideGuideScreen'
 import { SubscribeScreen } from './screens/SubscribeScreen'
 import { CreateAccountScreen } from './screens/CreateAccountScreen'
@@ -78,8 +78,8 @@ export default function App() {
         return <TrustScreen onNext={next} />
       case 'belonging':
         return <BelongingScreen onNext={next} />
-      case 'way-more':
-        return <WayMoreScreen onNext={next} />
+      case 'spark-checklist':
+        return <SparkChecklistScreen onNext={next} />
       case 'inside-guide':
         return <InsideGuideScreen onNext={next} />
       case 'subscribe':
