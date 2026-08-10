@@ -40,7 +40,10 @@ Entry: full-screen takeover when a CTA is tapped on a Study Guide page (mobile o
 11. **Payoff** — benefit checklist (Screen 11.4). Headline and subhead are
     personalized by the Q2 answer (see below); the checklist is the same for
     everyone.
-12. **Inside of your Study Guide for The Great Gatsby**
+12. **Inside of your Study Guide for The Great Gatsby** — each of the nine chips
+    opens its own bottom-sheet drawer (slides up; closes via X, scrim tap, or
+    Escape). Content lives in `chips` in `src/screens/InsideGuideScreen.tsx`,
+    illustrations in `src/funnel-assets/12-chip-drawers/`.
 13. **Subscribe Risk-Free for 7 Days** → **Create Account** (static end screen,
     marks the hand-off to checkout)
 
@@ -86,6 +89,9 @@ The `default` row also covers a user reaching the screen without answering Q2.
   exports from Figma, not hand-rebuilt DOM.
 - Unwired alternates kept for future A/B tests: `WayMoreScreen` and
   `SparkDetailScreen` (earlier payoff-screen variants).
+- **Known content gap:** the Quotes drawer illustration is currently a copy of
+  the Themes artwork — the two frames share the same image fills in Figma.
+  Replace `quotes.png` once a distinct illustration exists.
 
 ## Commands
 

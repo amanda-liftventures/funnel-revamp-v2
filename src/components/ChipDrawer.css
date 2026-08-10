@@ -1,0 +1,97 @@
+/* Overlay layer fills the phone frame (.phone is the positioned ancestor) */
+.chip-drawer-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.chip-drawer-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.32);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.chip-drawer-layer--open .chip-drawer-scrim {
+  opacity: 1;
+}
+
+/* Sheet — Figma: 390x365, radius 16/16/0/0, shadow 0 -6 16 rgba(0,0,0,.12) */
+.chip-drawer {
+  position: relative;
+  width: 100%;
+  height: 365px;
+  background: #ffffff;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -6px 16px 0 rgba(0, 0, 0, 0.12);
+  padding: 232px 28px 40px;
+  overflow: hidden;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.chip-drawer-layer--open .chip-drawer {
+  transform: translateY(0);
+}
+
+/* Illustration sits flush at the top, above the padded text block */
+.chip-drawer-illo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 390px;
+  height: 200px;
+  border-radius: 16px 16px 0 0;
+}
+
+.chip-drawer-close {
+  position: absolute;
+  left: 345px;
+  top: 16px;
+  width: 29px;
+  height: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+}
+
+.chip-drawer-close img {
+  width: 29px;
+  height: 29px;
+}
+
+.chip-drawer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 334px;
+}
+
+.chip-drawer-title {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #000000;
+}
+
+.chip-drawer-body {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.25px;
+  color: #000000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip-drawer,
+  .chip-drawer-scrim {
+    transition-duration: 0.01s;
+  }
+}

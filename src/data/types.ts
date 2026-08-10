@@ -77,6 +77,14 @@ export interface SparkChecklistStep extends BaseStep {
   copy: Record<string, PayoffCopy>
 }
 
+/** Bottom-sheet content shown when a Study Guide chip is tapped */
+export interface ChipDrawerContent {
+  title: string
+  body: string
+  /** Filename inside src/funnel-assets/12-chip-drawers/ */
+  image: string
+}
+
 export interface InsideGuideStep extends BaseStep {
   type: 'inside-guide'
 }
