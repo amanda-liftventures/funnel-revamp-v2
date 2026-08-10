@@ -1,5 +1,6 @@
 import { FooterCTA } from '../components/FooterCTA'
 import { asset } from '../assets-map'
+import type { BelongingStep, HeadlineCopy } from '../data/types'
 import './BelongingScreen.css'
 
 const A = '/assets/09-belonging-book-club'
@@ -13,38 +14,60 @@ const cards = [
   { title: 'West with Giraffes', author: 'Lynda Rutledge', cover: `${A}/cover-west-with-giraffes.png` },
 ]
 
-export function BelongingScreen({ onNext }: { onNext: () => void }) {
+interface BelongingScreenProps {
+  step: BelongingStep
+  /** Answer to the driving question (Q2); empty falls back to `default` copy */
+  personalizeBy: string[]
+  onNext: () => void
+}
+
+/** Headline split around the phrase carrying the brush highlight. */
+function Headline({ copy }: { copy: HeadlineCopy }) {
+  const at = copy.highlight ? copy.headline.indexOf(copy.highlight) : -1
+  if (at < 0) return <>{copy.headline}</>
+  return (
+    <>
+      {copy.headline.slice(0, at)}
+      <span className="belonging-hl-word">{copy.highlight}</span>
+      {copy.headline.slice(at + copy.highlight!.length)}
+    </>
+  )
+}
+
+export function BelongingScreen({ step, personalizeBy, onNext }: BelongingScreenProps) {
+  const copy = step.copy[personalizeBy[0]] ?? step.copy.default
+
   return (
     <>
       <div className="belonging-content">
         <div className="belonging-copy">
           <h1 className="belonging-headline">
-            Get more out of{' '}
-            <span className="belonging-hl-word">
-              your book club
-              <img src={asset(`${A}/text-highlight-indigo.svg`)} alt="" aria-hidden="true" />
-            </span>
+            <Headline copy={copy} />
           </h1>
           <p className="belonging-subhead">
             With <strong>10,000+ </strong>expert-developed Study Guides
           </p>
         </div>
-        <div className="belonging-cards">
-          {cards.map((c, i) => (
-            <div className="belonging-card" key={i}>
-              <img
-                className={`belonging-card-cover${c.crop ? ' belonging-card-cover--crop' : ' belonging-card-cover--border'}`}
-                src={asset(c.cover)}
-                alt=""
-              />
-              <div className="belonging-card-text">
-                <p className="belonging-card-title">{c.title}</p>
-                <p className="belonging-card-author">{c.author}</p>
+        {/* Cards flow below the copy so a taller personalized headline pushes
+            them down instead of overlapping; the badge rides with the cards. */}
+        <div className="belonging-cards-wrap">
+          <img className="belonging-badge" src={asset(`${A}/badge.svg`)} alt="" aria-hidden="true" />
+          <div className="belonging-cards">
+            {cards.map((c, i) => (
+              <div className="belonging-card" key={i}>
+                <img
+                  className={`belonging-card-cover${c.crop ? ' belonging-card-cover--crop' : ' belonging-card-cover--border'}`}
+                  src={asset(c.cover)}
+                  alt=""
+                />
+                <div className="belonging-card-text">
+                  <p className="belonging-card-title">{c.title}</p>
+                  <p className="belonging-card-author">{c.author}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-        <img className="belonging-badge" src={asset(`${A}/badge.svg`)} alt="" aria-hidden="true" />
         <div className="belonging-fade" aria-hidden="true" />
       </div>
       <div className="belonging-footer">

@@ -82,7 +82,13 @@ export default function App() {
       case 'trust':
         return <TrustScreen onNext={next} />
       case 'belonging':
-        return <BelongingScreen onNext={next} />
+        return (
+          <BelongingScreen
+            step={s}
+            personalizeBy={answers[s.personalizedBy] ?? []}
+            onNext={next}
+          />
+        )
       case 'spark-checklist':
         return (
           <SparkChecklistScreen

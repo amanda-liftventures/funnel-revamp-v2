@@ -51,11 +51,37 @@ Survey questions are required: single-selects advance on tap (the Figma frames
 have no footer on those steps); multi-selects disable Next until at least one
 option is chosen. Answers live for the session only — a reload starts clean.
 
-## Personalized payoff copy
+## Personalized copy
 
-The payoff screen's headline and subhead change with the Q2 answer ("What
-brought you here today?"), in both variants. The mapping lives in the
-`spark-checklist` step in `src/data/funnel.json`, keyed by Q2 answer value:
+Two screens change with the Q2 answer ("What brought you here today?"), in both
+variants. Both use the same shape — a `copy` table keyed by Q2 answer value on
+the step in `src/data/funnel.json`, plus a `default` row for Other, unknown
+values, and an unanswered Q2.
+
+### Step 9 — Belonging (headline only)
+
+Headlines lifted from the v1 payoff screens; the subhead ("With 10,000+
+expert-developed Study Guides") is the same for everyone.
+
+| Q2 answer | Headline (highlighted phrase) |
+|---|---|
+| Going deeper on a book | **Understand every layer** of what you're reading |
+| Preparing for a book club | Get more out of **your book club** |
+| Studying for a class | Save study time, stress less, and **master every book** |
+| Teaching a class | **Spend less time** planning and ensure student success |
+| Exploring what to read next | Pick your next book **with confidence** |
+| Helping someone with a book | Real support today, **a lifelong reader** tomorrow |
+| Other / no answer | **Understand every book**, start to finish |
+
+Highlight phrases match the v1 frames. Two of them wrap across lines, so the
+brush is painted as a repeating background with `box-decoration-break: clone` —
+one stroke per line, like the stacked highlight instances in Figma. The cards
+and badge flow below the copy, so a taller headline pushes them down rather
+than colliding.
+
+### Step 11 — Payoff (headline + subhead)
+
+The mapping lives in the `spark-checklist` step, keyed by Q2 answer value:
 
 | Q2 answer | Headline (highlighted phrase) |
 |---|---|

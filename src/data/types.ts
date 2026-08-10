@@ -52,8 +52,19 @@ export interface TrustStep extends BaseStep {
   type: 'trust'
 }
 
+/** Headline + the phrase to draw the brush highlight behind */
+export interface HeadlineCopy {
+  headline: string
+  /** Substring of `headline`; omit for no brush */
+  highlight?: string
+}
+
 export interface BelongingStep extends BaseStep {
   type: 'belonging'
+  /** Step id whose answer selects the headline (Q2) */
+  personalizedBy: string
+  /** Headline per answer value; `default` covers Other and unknown values */
+  copy: Record<string, HeadlineCopy>
 }
 
 export interface WayMoreStep extends BaseStep {

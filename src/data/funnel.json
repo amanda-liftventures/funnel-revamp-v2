@@ -237,7 +237,38 @@
     },
     {
       "id": "belonging",
-      "type": "belonging"
+      "type": "belonging",
+      "personalizedBy": "q-what-brought-you",
+      "copy": {
+        "going-deeper": {
+          "headline": "Understand every layer of what you're reading",
+          "highlight": "Understand every layer"
+        },
+        "book-club": {
+          "headline": "Get more out of your book club",
+          "highlight": "your book club"
+        },
+        "studying": {
+          "headline": "Save study time, stress less, and master every book",
+          "highlight": "master every book"
+        },
+        "teaching": {
+          "headline": "Spend less time planning and ensure student success",
+          "highlight": "Spend less time"
+        },
+        "exploring": {
+          "headline": "Pick your next book with confidence",
+          "highlight": "with confidence"
+        },
+        "helping-someone": {
+          "headline": "Real support today, a lifelong reader tomorrow",
+          "highlight": "a lifelong reader"
+        },
+        "default": {
+          "headline": "Understand every book, start to finish",
+          "highlight": "Understand every book"
+        }
+      }
     },
     {
       "id": "q-what-can-we-help",
