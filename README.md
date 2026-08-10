@@ -73,11 +73,21 @@ expert-developed Study Guides") is the same for everyone.
 | Helping someone with a book | Real support today, **a lifelong reader** tomorrow |
 | Other / no answer | **Understand every book**, start to finish |
 
-Highlight phrases match the v1 frames. Two of them wrap across lines, so the
-brush is painted as a repeating background with `box-decoration-break: clone` —
-one stroke per line, like the stacked highlight instances in Figma. The cards
-and badge flow below the copy, so a taller headline pushes them down rather
-than colliding.
+Highlight phrases match the v1 frames. The cards and badge flow below the copy,
+so a taller headline pushes them down rather than colliding.
+
+**How the brush is drawn** (same rule on both personalized screens): it's a
+background image on the highlighted span, sized
+`max(100%, <art's natural width>) <art's natural height>`, with
+`box-decoration-break: clone`.
+
+- `clone` gives a phrase that wraps one stroke per line, like the stacked
+  highlight instances in the frames.
+- The `max()` floor stops a short phrase from squeezing the whole stroke into a
+  few characters (which looked thin and distorted) — below the floor the span
+  shows the middle of an undistorted brush instead.
+- 12px of horizontal padding gives the overhang past the text the frames show,
+  so a phrase filling a line reaches the edges instead of stopping short.
 
 ### Step 11 — Payoff (headline + subhead)
 

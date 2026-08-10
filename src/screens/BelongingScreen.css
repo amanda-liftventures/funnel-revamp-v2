@@ -49,10 +49,15 @@
 .belonging-hl-word {
   background-image: url('../funnel-assets/09-belonging-book-club/text-highlight-indigo.svg');
   background-repeat: no-repeat;
-  background-size: 100% 35px;
+  /* Height is fixed at the frames' ~35px. Width follows the phrase but never
+     drops below the art's natural width at that height (275 x 39 -> 247), so a
+     short phrase shows the middle of an undistorted brush instead of squeezing
+     the whole stroke into a few characters. Long phrases stretch mildly and
+     still span the full line. Padding gives the overhang the frames show. */
+  background-size: max(100%, 275px) 39px;
   background-position: center 58%;
-  padding: 0 5px;
-  margin: 0 -5px;
+  padding: 0 12px;
+  margin: 0 -12px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }

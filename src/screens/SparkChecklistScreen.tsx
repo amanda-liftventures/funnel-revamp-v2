@@ -30,10 +30,7 @@ function Headline({ copy }: { copy: PayoffCopy }) {
   return (
     <>
       {copy.headline.slice(0, at)}
-      <span className="sparkck-hl-word">
-        {copy.highlight}
-        <img src={asset(`${A}/text-highlight-magenta.svg`)} alt="" aria-hidden="true" />
-      </span>
+      <span className="sparkck-hl-word">{copy.highlight}</span>
       {copy.headline.slice(at + copy.highlight!.length)}
     </>
   )
