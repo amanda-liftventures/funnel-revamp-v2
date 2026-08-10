@@ -37,7 +37,9 @@ Entry: full-screen takeover when a CTA is tapped on a Study Guide page (mobile o
 8. **Q:** Pick your top genres *(multi, max 3 — `complete` only)*
 9. **Belonging** — "Get more out of your book club"
 10. **Q:** What can we help you do? *(multi, Next button)*
-11. **Spark strong discussions** — payoff with benefit checklist (Screen 11.4)
+11. **Payoff** — benefit checklist (Screen 11.4). Headline and subhead are
+    personalized by the Q2 answer (see below); the checklist is the same for
+    everyone.
 12. **Inside of your Study Guide for The Great Gatsby**
 13. **Subscribe Risk-Free for 7 Days** → **Create Account** (static end screen,
     marks the hand-off to checkout)
@@ -45,6 +47,27 @@ Entry: full-screen takeover when a CTA is tapped on a Study Guide page (mobile o
 Survey questions are required: single-selects advance on tap (the Figma frames
 have no footer on those steps); multi-selects disable Next until at least one
 option is chosen. Answers live for the session only — a reload starts clean.
+
+## Personalized payoff copy
+
+The payoff screen's headline and subhead change with the Q2 answer ("What
+brought you here today?"), in both variants. The mapping lives in the
+`spark-checklist` step in `src/data/funnel.json`, keyed by Q2 answer value:
+
+| Q2 answer | Headline (highlighted phrase) |
+|---|---|
+| Preparing for a book club | Spark strong **discussions** |
+| Going deeper on a book | Go **deeper** than the plot |
+| Studying for a class | Walk into class **prepared** |
+| Teaching a class | Teach it with **confidence** |
+| Helping someone with a book | Have the **answers** |
+| Exploring what to read next | Find your **next great read** |
+| Other / no answer / unknown | Know the book **inside out** (`default` row) |
+
+Each row is `{ headline, highlight, subhead }` — mirroring the copy table.
+`highlight` must be a substring of `headline`; the brush SVG is drawn behind it
+and scales to the phrase, so any wording works. Omit `highlight` for no brush.
+The `default` row also covers a user reaching the screen without answering Q2.
 
 ## Behavior notes
 

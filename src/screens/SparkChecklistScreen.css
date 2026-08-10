@@ -45,7 +45,9 @@
   text-align: center;
 }
 
-/* Magenta brush highlight (230x35, rotated 180°) centered behind "discussions" */
+/* Magenta brush highlight (rotated 180°) centered behind the highlighted
+   phrase. Width tracks the phrase so it fits every personalized headline;
+   height stays at the Figma 35px. */
 .sparkck-hl-word {
   position: relative;
   z-index: 0;
@@ -57,7 +59,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -46%) rotate(180deg);
-  width: 230px;
+  width: calc(100% + 6px);
   height: 35px;
   max-width: none;
   z-index: -1;

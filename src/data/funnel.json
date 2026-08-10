@@ -285,7 +285,45 @@
     },
     {
       "id": "spark-checklist",
-      "type": "spark-checklist"
+      "type": "spark-checklist",
+      "personalizedBy": "q-what-brought-you",
+      "copy": {
+        "book-club": {
+          "headline": "Spark strong discussions",
+          "highlight": "discussions",
+          "subhead": "Ready-to-use questions, plus everything else in the Study Guide"
+        },
+        "going-deeper": {
+          "headline": "Go deeper than the plot",
+          "highlight": "deeper",
+          "subhead": "Chapter-by-chapter analysis, plus everything else in the Study Guide"
+        },
+        "studying": {
+          "headline": "Walk into class prepared",
+          "highlight": "prepared",
+          "subhead": "Themes, Important Quotes, and Essay Topics, plus everything else in the Study Guide"
+        },
+        "teaching": {
+          "headline": "Teach it with confidence",
+          "highlight": "confidence",
+          "subhead": "Classroom-ready Teaching Guides, plus in-depth analysis for every title"
+        },
+        "helping-someone": {
+          "headline": "Have the answers",
+          "highlight": "answers",
+          "subhead": "Plain-language Chapter Summaries, plus everything else in the Study Guide"
+        },
+        "exploring": {
+          "headline": "Find your next great read",
+          "highlight": "next great read",
+          "subhead": "Spoiler-free Book Briefs, plus in-depth Study Guides for every title"
+        },
+        "default": {
+          "headline": "Know the book inside out",
+          "highlight": "inside out",
+          "subhead": "Chapter Summaries, Themes, and Character Analyses—the whole Study Guide"
+        }
+      }
     },
     {
       "id": "inside-guide",

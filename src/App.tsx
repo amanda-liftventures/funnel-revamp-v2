@@ -84,7 +84,13 @@ export default function App() {
       case 'belonging':
         return <BelongingScreen onNext={next} />
       case 'spark-checklist':
-        return <SparkChecklistScreen onNext={next} />
+        return (
+          <SparkChecklistScreen
+            step={s}
+            personalizeBy={answers[s.personalizedBy] ?? []}
+            onNext={next}
+          />
+        )
       case 'inside-guide':
         return <InsideGuideScreen onNext={next} />
       case 'subscribe':

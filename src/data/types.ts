@@ -60,9 +60,21 @@ export interface WayMoreStep extends BaseStep {
   type: 'way-more'
 }
 
+/** One row of the payoff-copy table: headline (with the phrase to highlight) + subhead */
+export interface PayoffCopy {
+  headline: string
+  /** Substring of `headline` to draw the brush highlight behind; omit for none */
+  highlight?: string
+  subhead: string
+}
+
 /** Screen 11.4 variant: payoff with a benefit checklist */
 export interface SparkChecklistStep extends BaseStep {
   type: 'spark-checklist'
+  /** Step id whose answer selects the copy (Q2, "What brought you here today?") */
+  personalizedBy: string
+  /** Copy per answer value; `default` covers Other, no answer, and unknown values */
+  copy: Record<string, PayoffCopy>
 }
 
 export interface InsideGuideStep extends BaseStep {
